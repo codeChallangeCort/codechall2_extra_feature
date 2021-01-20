@@ -5,16 +5,19 @@ import re
 
 # script would take args as filename.csv."
 
-try:
-    parsed_files = []
-    for each_file in sys.argv[1:]:
-        parsed_files.append(each_file)
-    print("Total Files parsed: ", len(parsed_files), parsed_files)
+parsed_files = []
 
-except Exception as e:
-    print(e)
-    sys.exit()
+while True:
+    try:
+        option = input("Please enter a file name or 'N': ")
+        if option not in ["N","n"]:
+            parsed_files.append(option)
+        else:
+            break
+    except Exception as e:
+        print(e)
 
+print(f"\n{len(parsed_files)} PARSED FILES: ", parsed_files)
 # Empty Dictionary for JSON dumps
 
 json_data = {}
@@ -80,8 +83,9 @@ if __name__ == "__main__":
             missing_file.append(parsed_file)
         continue
 
-    print("TOTAL MISSING FILES: ",len(missing_file), missing_file)
+    print(f"{len(missing_file)} MISSING FILES: ", missing_file) if len(missing_file) > 0 else print("All Files Found")
     json_data["user_list_size"] = list_id
 
-    with open('results.json', 'w') as outfile:
-        json.dump(json_data, outfile, indent=4)
+    if list_id > 0:
+        with open('results.json', 'w') as outfile:
+            json.dump(json_data, outfile, indent=4)
