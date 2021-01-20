@@ -40,14 +40,14 @@ email_list = []
 
 def getInfo(row):
     """
-    This FUncation will split the full name in firstname and lastname, with list_id, and will dump that information in temporary dict
-    and temp dict into a list of
-    json_data
+    This Function will split the full name into first_name and last_name with list_id, and will dump that information in temporary dict
+    and temp dict into a list of json_data["user_list"]
     """
 
     # json_temp is to get the info for a individual customer for temporary time.
 
     json_temp = {}
+
     global list_id
 
     if re.search(regex,row["email"]):
@@ -83,9 +83,12 @@ if __name__ == "__main__":
             missing_file.append(parsed_file)
         continue
 
-    print(f"{len(missing_file)} MISSING FILES: ", missing_file) if len(missing_file) > 0 else print("All Files Found")
+    print(f"{len(missing_file)} MISSING FILES: ", missing_file) if len(missing_file) > 0 else print("All Files were Found")
     json_data["user_list_size"] = list_id
 
     if list_id > 0:
         with open('results.json', 'w') as outfile:
             json.dump(json_data, outfile, indent=4)
+
+    if (input("\nWould you like to print JSON data y/[n]?: ")) in ["y","Y"]:
+        print(json.dumps(json_data, indent=4, sort_keys=True))
