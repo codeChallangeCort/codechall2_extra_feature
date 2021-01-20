@@ -2,15 +2,15 @@
     "user_list": [
         {
             "list_id": 1,
+            "email": "trial1@gmail.com",
             "first_name": "trial1",
-            "last_name": "trial1",
-            "email": "trial1@gmail.com"
+            "last_name": "trial1"
         },
         {
             "list_id": 2,
+            "email": "trial2@gmail.com",
             "first_name": "trial2",
-            "last_name": "trial2",
-            "email": "trial2@gmail.com"
+            "last_name": "trial2"
         }
     ],
     "user_list_size": 2
