@@ -20,9 +20,9 @@ The `requirements.txt` file should list all Python libraries
 pip install -r requirements.txt
 ```
 
-The `start.py` is a Python Script for the challange and filename.csv and filename.csv are the parsed argument of the source path of files.
+The `start.py` is a Python Script to run the Applicdation. 
 ```
-python start.py filename.csv filename.csv
+python start.py
 ```
 
 ##### **n1.csv and n2.csv are the sample input files in the folder for testing purpose.**
